@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace objectsGC7
 {
@@ -38,16 +39,26 @@ namespace objectsGC7
 
 
 
+           
 
-            Console.WriteLine("Would you like to add a student? Y or N: ");
-            string response = Console.ReadLine();
+                Console.WriteLine("Would you like to add a student? Y or N: ");
+                string response = Console.ReadLine();
 
-            if (response.ToLower().Trim() == "y")
+           
+                if (response.ToLower().Trim() == "y")
+                {
+                    student create = new student();
+                    Console.WriteLine(create);
+                    students.Add(create);
+
+                }
+          
+
+            students = students.OrderBy(x => x.Name).ToList();
+
+           foreach(student e in students)
             {
-                student create = new student();
-                Console.WriteLine(create);
-                students.Add(create);
-
+                Console.WriteLine(e.Name);
             }
 
             Console.WriteLine("Would you like to continue? Y or N: ");
